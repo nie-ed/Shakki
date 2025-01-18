@@ -1,0 +1,22 @@
+[project]
+name = "shakki"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Nicolette Edevbaro",email = "nicolette.edevbaro@hotmail.com"}
+]
+readme = "README.md"
+requires-python = "^3.10"
+dependencies = [
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^3.3.3"
+autopep8 = "^2.3.2"
+pytest = "^8.3.4"
+
