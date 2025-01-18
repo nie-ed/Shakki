@@ -14,6 +14,7 @@ Seuraavaksi otan käyttöön annetun tekoälyalustan graafiseksi käyttöliittym
 ## Tuntikirjanpito
 
 | Päivämäärä | Käytetty aika | Selite |
+|------------|---------------|--------|
 | 14.1.2025  | 2h            | Valittu aihe, luotu repositorio projektille |
 | 16.1.2025  | 1h            | Asennettu projektinhallintatyökaluja |
 | 17.1.2025  | 1h            | Minimax-algoritmin opiskelua |
