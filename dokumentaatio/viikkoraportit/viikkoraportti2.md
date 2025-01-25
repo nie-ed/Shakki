@@ -2,11 +2,11 @@
 
 Tällä viikolla otin tekoälyalustan käyttöön ja aloitin laillisten siirtojen listaamisen.
 
-Ohjelma on edistynyt hitaasti. Tekoälyn kanssa kommunikoinnin onnistumisessa meni odotettua kauemmin. Ryhdyin tekemään laillisten siirtojen tarkastusta ja oli tarkoitus saada te valmiiksi tämän viikon palautukseen. Valitettavasti tämä ei onnistunut.
+Ohjelma on edistynyt hitaasti. Tekoälyn kanssa kommunikoinnin onnistumisessa meni odotettua kauemmin. Ryhdyin tekemään laillisten siirtojen tarkastusta ja oli tarkoitus saada ne valmiiksi tämän viikon palautukseen. Valitettavasti tämä ei onnistunut.
 
 Opin tekoälyalustan käyttöä, shakkilaudan piirtoa ja muokkaamista sekä siirtojen laillisuuden tarkastamista.
 
-Vaikeuksia aluksi tuotti tekoälyalustan käyttö. Hankalaa on myös ollu laillisten siirtojen tarkastaminen. 
+Vaikeuksia aluksi tuotti tekoälyalustan käyttö. Hankalaa on myös ollut laillisten siirtojen tarkastaminen ja sen laajuus. 
 
 Seuraavaksi teen laillisten siirtojen haun loppuun. Pyrin myös alustamaan minimax-algoritmin sekä testauksen ensi viikon palautukseen mennessä.
 
