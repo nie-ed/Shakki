@@ -2,6 +2,8 @@ import random
 from movement_of_pieces.knight import Knight
 from movement_of_pieces.pawn import Pawn
 from movement_of_pieces.king import King
+from movement_of_pieces.rook import Rook
+from movement_of_pieces.bishop import Bishop
 
 class Moves:
     """Class, which creates the objects for the piece movement checking and calls the fuctions to check for legal moves.
@@ -13,7 +15,7 @@ class Moves:
         self.alph = ["a", "b", "c", "d", "e", "f", "g", "h"]    
 
     def make_move(self, board):
-        """Calls the function which checks the legal moves of a piece.
+        """Calls the method which checks the legal moves of a piece.
 
         Args:
             board (Board): Board and its state in a list of lists form.
@@ -24,6 +26,8 @@ class Moves:
         knight = Knight()
         pawn = Pawn()
         king = King()
+        rook = Rook()
+        bishop = Bishop()
 
         legals = []
         for row in range(len(board)):
@@ -34,6 +38,10 @@ class Moves:
                     knight.knight_movement(board, row, col, legals, self.opponent_pieces, self.alph)
                 if board[row][col] == "k":
                     king.king_movement(board, row, col, legals, self.opponent_pieces, self.alph)
+                if board[row][col] == "r":
+                    rook.rook_movement(board, row, col, legals, self.opponent_pieces, self.alph)
+                if board[row][col] == "b":
+                    rook.rook_movement(board, row, col, legals, self.opponent_pieces, self.alph)
 
 
 
@@ -42,7 +50,7 @@ class Moves:
 
         legals = list(dict.fromkeys(legals))
 
-        #add here all to minimax, to check, which of the legal moes would be best next
+        #add here all to minimax, to check, which of the legal moves would be best next
 
         print(legals)
 

@@ -74,7 +74,6 @@ class Knight():
                     legals.append(f"{alph[col]}{row}{alph[col-1]}{row+2}")
  
 
-#SO FAR OK
 
 
         #if knight is at the bottom two rows of the board
@@ -97,7 +96,6 @@ class Knight():
                         legals.append(f"{alph[col]}{row}{alph[col-1]}{row-2}")
                     if board[row-2][col+1] == "." or board[row-2][col+1] in opponent_pieces:
                         legals.append(f"{alph[col]}{row}{alph[col+1]}{row-2}")
-  #SO FAR OKY
                 
                 #if knigth is on the 7th row, col 1                    
                 if col ==1:
@@ -122,7 +120,7 @@ class Knight():
                     #knight can also move tow rows up, one column right
                     if board[row-2][col+1] == "." or board[row-2][col+1] in opponent_pieces:
                         legals.append(f"{alph[col]}{row}{alph[col+1]}{row-2}") 
-  #SO FAR OKAY
+
                 #if knigth is on the 7th row, col 6                    
                 if col ==6:
                     #knight can move two up, left or right 1
@@ -138,20 +136,20 @@ class Knight():
                
                 #if knight is on the 7th row, col 7           
                 if col == 7:
-                    #knight can move two colums right one row up or down
-                    if board[row+1][col+2] == "." or board[row+1][col+2] in opponent_pieces:
-                        legals.append(f"{alph[col]}{row}{alph[col+2]}{row+1}")
-                    if board[row-1][col+2] == "." or board[row-1][col+2] in opponent_pieces:
-                        legals.append(f"{alph[col]}{row}{alph[col+2]}{row-1}")
+                    #knight can move two colums left one row up or down
+                    if board[row+1][col-2] == "." or board[row+1][col-2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-2]}{row+1}")
+                    if board[row-1][col-2] == "." or board[row-1][col-2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-2]}{row-1}")
                     #knight can also move tow rows up, one column right
-                    if board[row-2][col+1] == "." or board[row-2][col+1] in opponent_pieces:
-                        legals.append(f"{alph[col]}{row}{alph[col+1]}{row-2}") 
+                    if board[row-2][col-1] == "." or board[row-2][col-1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-1]}{row-2}") 
  
  
             #if knight is on the 8th row                       
             if row == 8:
                 #if knight is in the middle of the eight row, can move laterally 2 side an one up
-                if col >= 2 or col <=5:
+                if col >= 2 and col <=5:
                     if board[row-1][col-2] == "." or board[row-1][col-2] in opponent_pieces:
                         legals.append(f"{alph[col]}{row}{alph[col-2]}{row-1}")
                     if board[row-1][col+2] == "." or board[row-1][col+2] in opponent_pieces:
@@ -191,20 +189,145 @@ class Knight():
                         legals.append(f"{alph[col]}{row}{alph[col-1]}{row-2}")
                     if board[row-2][col+1] == "." or board[row-2][col+1] in opponent_pieces:
                         legals.append(f"{alph[col]}{row}{alph[col+1]}{row-2}")  
-                    #knight can also move two colums right, one up 
+                    #knight can also move two colums left, one up 
                     if board[row-1][col-2] == "." or board[row-1][col-2] in opponent_pieces:
                         legals.append(f"{alph[col]}{row}{alph[col-2]}{row-1}")
 
 
                 #if knight is on the 8th row, col 7           
                 if col == 7:
-                    #knight can move two colums right one row up or down
+                    #knight can move two colums left one row up or down
                     if board[row-1][col-2] == "." or board[row-1][col-2] in opponent_pieces:
                         legals.append(f"{alph[col]}{row}{alph[col-2]}{row-1}")
-                    #knight can also move tow rows up, one column right
+                    #knight can also move tow rows up, one column left
                     if board[row-2][col-1] == "." or board[row-2][col-1] in opponent_pieces:
                         legals.append(f"{alph[col]}{row}{alph[col-1]}{row-2}") 
  
 
-    # TO DO:
-    #knight movemetn in rows 2, and 1
+        #if knight is at the top two rows of the board
+        elif row <= 2 and row >=1:
+            #if knight is on the second row
+            if row == 2:
+                #if knight is in the middle of the second row, can move laterally 2 side an one up
+                if col >= 2 or col <=5:
+                    if board[row-1][col-2] == "." or board[row-1][col-2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-2]}{row-1}")
+                    if board[row-1][col+2] == "." or board[row-1][col+2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+2]}{row-1}")
+                    if board[row+1][col+2] == "." or board[row+1][col+2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+2]}{row+1}")
+                    if board[row+1][col-2] == "." or board[row+1][col-2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-2]}{row+1}")
+                        
+                    #knight can also move 2 up, right or left one
+                    if board[row+2][col-1] == "." or board[row+2][col-1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-1]}{row+2}")
+                    if board[row+2][col+1] == "." or board[row+2][col+1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+1]}{row+2}")
+
+                #if knigth is on the second row, col 1                    
+                if col ==1:
+                    #knight can move  up, left or right 1
+                    if board[row+2][col-1] == "." or board[row+2][col-1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-1]}{row+2}")
+                    if board[row+2][col+1] == "." or board[row+2][col+1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+1]}{row+2}")  
+                    #knight can also move two colums right, one row down or up 
+                    if board[row+1][col+2] == "." or board[row+1][col+2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+2]}{row+1}")
+                    if board[row-1][col+2] == "." or board[row-1][col+2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+2]}{row-1}")
+                
+                #if knight is on the second row, col 0           
+                if col == 0:
+                    #knight can move two colums right one row up or down
+                    if board[row+1][col+2] == "." or board[row+1][col+2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+2]}{row+1}")
+                    if board[row-1][col+2] == "." or board[row-1][col+2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+2]}{row-1}")
+                    #knight can also move tow rows up, one column right
+                    if board[row+2][col+1] == "." or board[row+2][col+1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+1]}{row+2}") 
+
+                #if knigth is on the second row, col 6                    
+                if col ==6:
+                    #knight can move two up, left or right 1
+                    if board[row+2][col-1] == "." or board[row+2][col-1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-1]}{row+2}")
+                    if board[row+2][col+1] == "." or board[row+2][col+1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+1]}{row+2}")  
+                    #knight can also move two colums left, one row down or up 
+                    if board[row+1][col-2] == "." or board[row+1][col-2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-2]}{row+1}")
+                    if board[row-1][col-2] == "." or board[row-1][col-2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-2]}{row-1}")
+               
+                #if knight is on the second row, col 7           
+                if col == 7:
+                    #knight can move two colums left one row up or down
+                    if board[row+1][col-2] == "." or board[row+1][col-2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-2]}{row+1}")
+                    if board[row-1][col-2] == "." or board[row-1][col-2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-2]}{row-1}")
+                    #knight can also move tow rows up, one column left
+                    if board[row+2][col-1] == "." or board[row+2][col-1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-1]}{row+2}") 
+
+
+            #if knight is on the 1st row                       
+            if row == 1:
+                #if knight is in the middle of the first row, can move laterally 2 side an one up
+                if col >= 2 or col <=5:
+                    if board[row+1][col-2] == "." or board[row+1][col-2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-2]}{row+1}")
+                    if board[row+1][col+2] == "." or board[row+1][col+2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+2]}{row+1}")
+
+                        
+                    #knight can also move 2 up, right or left one
+                    if board[row+2][col-1] == "." or board[row+2][col-1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-1]}{row+2}")
+                    if board[row+2][col+1] == "." or board[row+2][col+1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+1]}{row+2}")
+
+                #if knigth is on the 1st row, col 1                    
+                if col ==1:
+                    #knight can move two up, left or right 1
+                    if board[row+2][col-1] == "." or board[row+2][col-1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-1]}{row+2}")
+                    if board[row+2][col+1] == "." or board[row+2][col+1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+1]}{row+2}")  
+                    #knight can also move two colums right, one row down or up 
+                    if board[row+1][col+2] == "." or board[row+1][col+2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+2]}{row+1}")                
+
+                #if knigth is on the 1st row, col 0
+                if col == 0:
+                    #knight can move two colums right one row down
+                    if board[row+1][col+2] == "." or board[row+1][col+2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+2]}{row+1}")
+                    #knight can also move tow rows up, one column right
+                    if board[row+2][col+1] == "." or board[row+2][col+1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+1]}{row+2}") 
+
+                #if knight in 1st row col 6
+                if col ==6:
+                    #knight can move two up, left or right 1
+                    if board[row+2][col-1] == "." or board[row+2][col-1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-1]}{row+2}")
+                    if board[row+2][col+1] == "." or board[row+2][col+1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col+1]}{row+2}")  
+                    #knight can also move two colums left, one up 
+                    if board[row+1][col-2] == "." or board[row+1][col-2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-2]}{row+1}")
+
+
+                #if knight is on the 1st row, col 7           
+                if col == 7:
+                    #knight can move two colums left one row up or down
+                    if board[row+1][col-2] == "." or board[row+1][col-2] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-2]}{row+1}")
+                    #knight can also move tow rows up, one column left
+                    if board[row+2][col-1] == "." or board[row+2][col-1] in opponent_pieces:
+                        legals.append(f"{alph[col]}{row}{alph[col-1]}{row+2}") 
+
