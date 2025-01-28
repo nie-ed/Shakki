@@ -4,6 +4,7 @@ from movement_of_pieces.pawn import Pawn
 from movement_of_pieces.king import King
 from movement_of_pieces.rook import Rook
 from movement_of_pieces.bishop import Bishop
+from movement_of_pieces.queen import Queen
 
 class Moves:
     """Class, which creates the objects for the piece movement checking and calls the fuctions to check for legal moves.
@@ -28,6 +29,7 @@ class Moves:
         king = King()
         rook = Rook()
         bishop = Bishop()
+        queen = Queen()
 
         legals = []
         for row in range(len(board)):
@@ -41,9 +43,9 @@ class Moves:
                 if board[row][col] == "r":
                     rook.rook_movement(board, row, col, legals, self.opponent_pieces, self.alph)
                 if board[row][col] == "b":
-                    rook.rook_movement(board, row, col, legals, self.opponent_pieces, self.alph)
-
-
+                    bishop.bishop_movement(board, row, col, legals, self.opponent_pieces, self.alph)
+                if board[row][col] == "q":
+                    queen.queen_movement(board, row, col, legals, self.opponent_pieces, self.alph)
 
 
         print(legals)

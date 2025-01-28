@@ -17,46 +17,174 @@ class Bishop:
             opponent_pieces (list): List of opponents pieces in str form. 
             alph (list): List of the alpabetic characters of columns on the board.
         """
-        #if rook in col where movement to the right is possible
-        if col < 7:
-            for i in range(col, 7):
-                if board[row][i+1] == ".": 
-                    legals.append(f"{alph[col]}{row}{alph[i+1]}{row}")
-                elif board[row][i+1] in opponent_pieces: 
-                    legals.append(f"{alph[col]}{row}{alph[i+1]}{row}")
+        #if bishop next to the right wall
+        if col ==7:
+            # if bishop next to the right wall and next to the upper wall
+            if row == 1:
+                for index in range(1, (8-col)):
+                for index, index in enumerate(range(col, 1, -1)):
+                    if board[row+index][index-col] == ".": 
+                        legals.append(f"{alph[col]}{row}{alph[index-col]}{row+index}")
+                    elif board[row+index][index-col] in opponent_pieces: 
+                        legals.append(f"{alph[col]}{row}{alph[index-col]}{row+index}")
+                        break
+                    else:
+                        break
+
+            # if bishop next to the right wall, on row 2-6
+            if row >= 2 and row <=7:
+                for index, index in enumerate(range(col, 1, -1)):
+                    if board[row+index][index-col] == ".": 
+                        legals.append(f"{alph[col]}{row}{alph[index-col]}{row+index}")
+                    elif board[row-index][index-col] == ".": 
+                        legals.append(f"{alph[col]}{row}{alph[index-col]}{row-index}")
+                    elif board[row+index][index-col] in opponent_pieces: 
+                        legals.append(f"{alph[col]}{row}{alph[index-col]}{row+index}")
+                        break
+                    elif board[row-index][index-col] in opponent_pieces: 
+                        legals.append(f"{alph[col]}{row}{alph[index-col]}{row-index}")
+                        break
+                    else:
+                        break
+
+            #if bishop next to the right wall and on the last row, row 8
+            if row == 8:
+                for index, index in enumerate(range(col, 1, -1)):
+                    if board[row-index][index-col] == ".": 
+                        legals.append(f"{alph[col]}{row}{alph[index-col]}{row-index}")
+                    elif board[row-index][index-col] in opponent_pieces: 
+                        legals.append(f"{alph[col]}{row}{alph[index-col]}{row-index}")
+                        break
+                    else:
+                        break
+
+
+        # if bishop somewhere in the middle, where movement everywhere is possible
+        if row >= 2 and row <= 7 and col >= 1 and col <= 6:
+            #movement to the left
+            for index, index in enumerate (range(col, 1, -1)):
+                if board[row+index][index-col] == ".": 
+                    legals.append(f"{alph[col]}{row}{alph[index-col]}{row+index}")
+                elif board[row-index][index-col] == ".": 
+                    legals.append(f"{alph[col]}{row}{alph[index-col]}{row-index}")
+                elif board[row+index][index-col] in opponent_pieces: 
+                    legals.append(f"{alph[col]}{row}{alph[index-col]}{row+index}")
                     break
-                else:
-                    break
-                
-        #if rook in col where movement to the left is possible
-        if col > 0:
-            for i in range(col, 1, -1):
-                if board[row][i-1] == ".": 
-                    legals.append(f"{alph[col]}{row}{alph[i-1]}{row}")
-                elif board[row][i-1] in opponent_pieces: 
-                    legals.append(f"{alph[col]}{row}{alph[i-1]}{row}")
+                elif board[row-index][index-col] in opponent_pieces: 
+                    legals.append(f"{alph[col]}{row}{alph[index-col]}{row-index}")
                     break
                 else:
                     break
 
-        #if rook in row where movement down is possible
-        if row < 8:
-            for i in range(row, 8):
-                if board[i+1][col] == ".": 
-                    legals.append(f"{alph[col]}{row}{alph[col]}{i+1}")
-                elif board[i+1][col] in opponent_pieces: 
-                    legals.append(f"{alph[col]}{row}{alph[col]}{i+1}")
-                    break
-                else:
-                    break
+            #movemet to the right
+                for index in range(1, (8-col)):
+                    if 8-row >= index:
+                        if board[row+index][index+col] == ".": 
+                            legals.append(f"{alph[col]}{row}{alph[index+col]}{row+index}")
+                        elif board[row-index][index+col] == ".": 
+                            legals.append(f"{alph[col]}{row}{alph[index+col]}{row-index}")
+                        elif board[row+index][index+col] in opponent_pieces: 
+                            legals.append(f"{alph[col]}{row}{alph[index+col]}{row+index}")
+                            break
+                        elif board[row-index][index+col] in opponent_pieces: 
+                            legals.append(f"{alph[col]}{row}{alph[index+col]}{row-index}")
+                            break
+                        else:
+                            break
 
-        #if rook in row where movement up ispossible
-        if row > 1:
-            for i in range(row, 1, -1):
-                if board[i-1][col] == ".": 
-                    legals.append(f"{alph[col]}{row}{alph[col]}{i-1}")
-                elif board[i-1][col] in opponent_pieces: 
-                    legals.append(f"{alph[col]}{row}{alph[col]}{i-1}")
-                    break
-                else:
-                    break
+
+        #if row ==8 and somewhere in the middle
+        if row ==8:
+            if col>=1 and col <=6:
+                #movement to the left
+                for index, index in enumerate (range(col, 1, -1)):
+                    if board[row-index][index-col] == ".": 
+                        legals.append(f"{alph[col]}{row}{alph[index-col]}{row-index}")
+                    elif board[row-index][index-col] in opponent_pieces: 
+                        legals.append(f"{alph[col]}{row}{alph[index-col]}{row-index}")
+                        break
+                    else:
+                        break
+
+                #movemet to the right
+                for index in range(1, (8-col)):
+                    if board[row-index][index+col] == ".": 
+                        legals.append(f"{alph[col]}{row}{alph[index+col]}{row-index}")
+                    elif board[row-index][index+col] in opponent_pieces: 
+                        legals.append(f"{alph[col]}{row}{alph[index+col]}{row-index}")
+                        break
+                    else:
+                        break
+
+
+        #if row ==1 and somewhere in the middle
+        if row ==1:
+            if col>=1 and col <=6:
+                #movement to the left
+                for index, index in enumerate (range(col, 1, -1)):
+                    if board[row+index][index-col] == ".": 
+                        legals.append(f"{alph[col]}{row}{alph[index-col]}{row+index}")
+                    elif board[row+index][index-col] in opponent_pieces: 
+                        legals.append(f"{alph[col]}{row}{alph[index-col]}{row+index}")
+                        break
+                    else:
+                        break
+
+                #movemet to the right
+                for index in range(1, (8-col)):
+                    if board[row+index][index+col] == ".": 
+                        legals.append(f"{alph[col]}{row}{alph[index+col]}{row+index}")
+                    elif board[row+index][index+col] in opponent_pieces: 
+                        legals.append(f"{alph[col]}{row}{alph[index+col]}{row+index}")
+                        break
+                    else:
+                        break
+
+
+        #if bishop next to the left wall
+        if col ==0:
+            # if bishop next to the left wall and next to the upper wall
+            if row == 1:
+                for index in range(1, (8-col)):
+                    if board[row+index][index+col] == ".": 
+                        legals.append(f"{alph[col]}{row}{alph[index+col]}{row+index}")
+                    elif board[row+index][index+col] in opponent_pieces: 
+                        legals.append(f"{alph[col]}{row}{alph[index+col]}{row+index}")
+                        break
+                    else:
+                        break
+
+            # if bishop next to the left wall, on row 2-6
+            if row >= 2 and row <=7:
+                for index in range(1, (8-col)):
+                    if board[row+index][index+col] == ".": 
+                        legals.append(f"{alph[col]}{row}{alph[index+col]}{row+index}")
+                    elif board[row-index][index+col] == ".": 
+                        legals.append(f"{alph[col]}{row}{alph[index+col]}{row-index}")
+                    elif board[row+index][index+col] in opponent_pieces: 
+                        legals.append(f"{alph[col]}{row}{alph[index+col]}{row+index}")
+                        break
+                    elif board[row-index][index+col] in opponent_pieces: 
+                        legals.append(f"{alph[col]}{row}{alph[index+col]}{row-index}")
+                        break
+                    else:
+                        break
+
+            #if bishop next to the right wall and on the last row, row 8
+            if row == 8:
+                for index in range(1, (8-col)):
+                    if board[row-index][index+col] == ".": 
+                        legals.append(f"{alph[col]}{row}{alph[index+col]}{row-index}")
+                    elif board[row-index][index+col] in opponent_pieces: 
+                        legals.append(f"{alph[col]}{row}{alph[index+col]}{row-index}")
+                        break
+                    else:
+                        break
+
+
+
+
+#TO DO:
+# next to the left wall and the middle
+# next to the left wall and the upper wall
+# next tot the left wall and the bottom wall
