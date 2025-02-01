@@ -13,17 +13,12 @@ class Board:
 
     def update_board(self, choice, moves):
         first_position_col = moves.index(choice[0])
-        print(first_position_col)
         first_position_row = int(choice[1])
-        print(first_position_row)
         second_position_col = moves.index(choice[2])
         second_position_row = int(choice[3])
         piece_moving = self.board[first_position_row][first_position_col]
-        #if piece_moving != ".":
-            #piece eaten
+        # if piece_moving != ".":
+        # piece eaten
         self.board[first_position_row][first_position_col] = "."
         self.board[second_position_row][second_position_col] = piece_moving
         print(self.board)
-
-
-# moves = ["a", "b", "c", "d", "e", "f", "g", "h"]
