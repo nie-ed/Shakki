@@ -17,6 +17,6 @@ Seuraavaksi pyrin saamaan minimax-algoritmin toimivaksi sekä testauksen aloitet
 | 27.1.2025  | 1h 30min      | Laillisten siirtojen haun tekoa ja dokumentaation päivitystä.|
 | 28.1.2025  | 1h            | Laillisten siirtojen haun tekoa Queen ja Bishop luokille.|
 | 30.1.2025  | 1h            | Palaveri ohjaajan kanssas siirtolistasta |
-| 1.2.2025   | 8h            | Siirtolistan korjaus ja minimax-algoritmin alustus |
+| 1.2.2025   | 8h 30min      | Siirtolistan korjaus ja minimax-algoritmin alustus |
 
-Käytetty aika yhteensä: 
+Käytetty aika yhteensä: 12h
