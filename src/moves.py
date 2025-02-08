@@ -32,13 +32,14 @@ class Moves:
             str: The chocen move to make, in string form and a for the AI platform can understand.
         """
         legals = self.get_legal_moves(board, True)
-        print(f"board copy: {board.copy()}")
 
-        minimax = Minimax().minimax
+        minimax_object = Minimax()
+        minimax = minimax_object.minimax
+        minimax_object.scores = [0] * len(legals)
         test_board = TestBoard(board.copy())
 
         best_move = minimax(
-            self.get_legal_moves, legals, 0, True, 2, test_board, self.pieces, self.opponent_pieces)
+            self.get_legal_moves, legals, 0, True, 1, test_board, self.pieces, self.opponent_pieces, 0)
 
  #       best_moves_list = []
  #       for i in range(len(scores)):
@@ -49,7 +50,8 @@ class Moves:
         print(f"legals: {legals}")
 
 
-        choice = random.choice(legals)
+        choice = legals[minimax_object.scores.index(max(minimax_object.scores))]
+        print(minimax_object.scores)
 
 
         return choice

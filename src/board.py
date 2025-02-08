@@ -21,4 +21,3 @@ class Board:
         # piece eaten
         self.board[first_position_row][first_position_col] = "."
         self.board[second_position_row][second_position_col] = piece_moving
-        print(self.board)
