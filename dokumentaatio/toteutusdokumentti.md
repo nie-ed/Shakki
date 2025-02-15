@@ -19,3 +19,8 @@ Projektissa on toteutettu tekoäly shakkipelille. Projektin käyttöliittymänä
 Työssä ei ole käytetty laajoja kielimalleja.
 
 ## Viitteet
+
+### Heurestiikkafunktiomateriaalia:
+
+- https://www.quora.com/What-are-some-heuristics-for-quickly-evaluating-chess-positions
+- https://jyx.jyu.fi/jyx/Record/jyx_123456789_12488?sequence=1&isAllowed=y
