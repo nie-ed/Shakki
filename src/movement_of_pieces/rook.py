@@ -43,7 +43,7 @@ class Rook:
                 else:
                     break
 
-        for i in range(1, len(board[0])+1):
+        for i in range(1, len(board[1])+1):
             x = xx
             y = yy + i
             if 0 < x < 9 and 0 <= y < 8:
@@ -54,7 +54,7 @@ class Rook:
                 else:
                     break
 
-        for i in range(1, len(board[0])+1):
+        for i in range(1, len(board[1])+1):
             x = xx
             y = yy - i
             if 0 < x < 9 and 0 <= y < 8:

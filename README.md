@@ -11,3 +11,5 @@
 [Viikko 3](./dokumentaatio/viikkoraportit/viikkoraportti3.md)
 
 [Viikko 4](./dokumentaatio/viikkoraportit/viikkoraportti4.md)
+
+[Viikko 5](./dokumentaatio/viikkoraportit/viikkoraportti4.md)

@@ -51,7 +51,7 @@ class Pawn:
             if 0 < x < 9 and 0 <= y < 8:
                 if board[x][y] == ".":
                     legals.append((x, y))
-                    if row == 7 and board[x+1][y] == ".":
+                    if row == 2 and board[x+1][y] == ".":
                         legals.append((x+1, y))
 
             x = xx + 1

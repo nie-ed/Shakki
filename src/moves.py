@@ -5,8 +5,7 @@ from movement_of_pieces.rook import Rook
 from movement_of_pieces.bishop import Bishop
 from movement_of_pieces.queen import Queen
 from minimax import Minimax
-from test_board import TestBoard
-import random
+from trial_board import TrialBoard
 
 
 class Moves:
@@ -15,10 +14,10 @@ class Moves:
 
     def __init__(self):
         self.moves_made_earlier = []
-        self.opponent_pieces = ["N", "B", "Q", "K", "R", "P"]
-        self.pieces = ["n", "b", "q", "k", "r", "p"]
-        self.opponent_alph = ["A", "B", "C", "D", "E", "F", "G", "H"]
-        self.alph = ["a", "b", "c", "d", "e", "f", "g", "h"]
+        self.min_pieces = ["N", "B", "Q", "K", "R", "P"]
+        self.max_pieces = ["n", "b", "q", "k", "r", "p"]
+        self.min_alph = ["A", "B", "C", "D", "E", "F", "G", "H"]
+        self.max_alph = ["a", "b", "c", "d", "e", "f", "g", "h"]
 
     
 
@@ -34,21 +33,13 @@ class Moves:
         legals = self.get_legal_moves(board, True)
 
         minimax_object = Minimax()
-        minimax = minimax_object.minimax
+        minimax_algorithm = minimax_object.minimax
         minimax_object.scores = [0] * len(legals)
-        test_board = TestBoard(board.copy())
+        trial_board = TrialBoard(board.copy())
 
-        best_move = minimax(
-            self.get_legal_moves, legals, 0, True, 1, test_board, self.pieces, self.opponent_pieces, 0)
+        minimax_algorithm(self.get_legal_moves, legals, 0, True, 1, trial_board, 0)
 
- #       best_moves_list = []
- #       for i in range(len(scores)):
-  #          if scores[i] == best_move:
-   #             best_moves_list.append(i)
-        print(f"best move: {best_move}")
-      #  print(f"bet moves list {len(best_moves_list)}")
         print(f"legals: {legals}")
-
 
         choice = legals[minimax_object.scores.index(max(minimax_object.scores))]
         print(minimax_object.scores)
@@ -73,51 +64,51 @@ class Moves:
 
                     if board[row][col] == "p":
                         added_legals = pawn.pawn_movement(
-                            board, row, col, self.opponent_pieces, True)
+                            board, row, col, self.min_pieces, True)
                         if added_legals:
                             for i in added_legals:
                                 legals.append(
-                                    f"{self.alph[col]}{row}{self.alph[i[1]]}{i[0]}")
+                                    f"{self.max_alph[col]}{row}{self.max_alph[i[1]]}{i[0]}")
 
                     if board[row][col] == "n":
                         added_legals = knight.knight_movement(
-                            board, row, col, self.pieces)
+                            board, row, col, self.max_pieces)
                         if added_legals:
                             for i in added_legals:
                                 legals.append(
-                                    f"{self.alph[col]}{row}{self.alph[i[1]]}{i[0]}")
+                                    f"{self.max_alph[col]}{row}{self.max_alph[i[1]]}{i[0]}")
 
                     if board[row][col] == "k":
                         added_legals = king.king_movement(
-                            board, row, col, self.pieces)
+                            board, row, col, self.max_pieces)
                         if added_legals:
                             for i in added_legals:
                                 legals.append(
-                                    f"{self.alph[col]}{row}{self.alph[i[1]]}{i[0]}")
+                                    f"{self.max_alph[col]}{row}{self.max_alph[i[1]]}{i[0]}")
 
                     if board[row][col] == "r":
                         added_legals = rook.rook_movement(
-                            board, row, col, self.pieces)
+                            board, row, col, self.max_pieces)
                         if added_legals:
                             for i in added_legals:
                                 legals.append(
-                                    f"{self.alph[col]}{row}{self.alph[i[1]]}{i[0]}")
+                                    f"{self.max_alph[col]}{row}{self.max_alph[i[1]]}{i[0]}")
 
                     if board[row][col] == "b":
                         added_legals = bishop.bishop_movement(
-                            board, row, col, self.pieces)
+                            board, row, col, self.max_pieces)
                         if added_legals:
                             for i in added_legals:
                                 legals.append(
-                                    f"{self.alph[col]}{row}{self.alph[i[1]]}{i[0]}")
+                                    f"{self.max_alph[col]}{row}{self.max_alph[i[1]]}{i[0]}")
 
                     if board[row][col] == "q":
                         added_legals = queen.queen_movement(
-                            board, row, col, self.pieces)
+                            board, row, col, self.max_pieces)
                         if added_legals:
                             for i in added_legals:
                                 legals.append(
-                                    f"{self.alph[col]}{row}{self.alph[i[1]]}{i[0]}")
+                                    f"{self.max_alph[col]}{row}{self.max_alph[i[1]]}{i[0]}")
 
         
         else:
@@ -126,49 +117,49 @@ class Moves:
 
                     if board[row][col] == "P":
                         added_legals = pawn.pawn_movement(
-                            board, row, col, self.opponent_pieces, False)
+                            board, row, col, self.min_pieces, False)
                         if added_legals:
                             for i in added_legals:
                                 legals.append(
-                                    f"{self.alph[col]}{row}{self.alph[i[1]]}{i[0]}")
+                                    f"{self.max_alph[col]}{row}{self.max_alph[i[1]]}{i[0]}")
 
                     if board[row][col] == "N":
                         added_legals = knight.knight_movement(
-                            board, row, col, self.pieces)
+                            board, row, col, self.max_pieces)
                         if added_legals:
                             for i in added_legals:
                                 legals.append(
-                                    f"{self.alph[col]}{row}{self.alph[i[1]]}{i[0]}")
+                                    f"{self.max_alph[col]}{row}{self.max_alph[i[1]]}{i[0]}")
 
                     if board[row][col] == "K":
                         added_legals = king.king_movement(
-                            board, row, col, self.pieces)
+                            board, row, col, self.max_pieces)
                         if added_legals:
                             for i in added_legals:
                                 legals.append(
-                                    f"{self.alph[col]}{row}{self.alph[i[1]]}{i[0]}")
+                                    f"{self.max_alph[col]}{row}{self.max_alph[i[1]]}{i[0]}")
 
                     if board[row][col] == "R":
                         added_legals = rook.rook_movement(
-                            board, row, col, self.pieces)
+                            board, row, col, self.max_pieces)
                         if added_legals:
                             for i in added_legals:
                                 legals.append(
-                                    f"{self.alph[col]}{row}{self.alph[i[1]]}{i[0]}")
+                                    f"{self.max_alph[col]}{row}{self.max_alph[i[1]]}{i[0]}")
 
                     if board[row][col] == "B":
                         added_legals = bishop.bishop_movement(
-                            board, row, col, self.pieces)
+                            board, row, col, self.max_pieces)
                         if added_legals:
                             for i in added_legals:
                                 legals.append(
-                                    f"{self.alph[col]}{row}{self.alph[i[1]]}{i[0]}")
+                                    f"{self.max_alph[col]}{row}{self.max_alph[i[1]]}{i[0]}")
 
                     if board[row][col] == "Q":
                         added_legals = queen.queen_movement(
-                            board, row, col, self.pieces)
+                            board, row, col, self.max_pieces)
                         if added_legals:
                             for i in added_legals:
                                 legals.append(
-                                    f"{self.alph[col]}{row}{self.alph[i[1]]}{i[0]}")
+                                    f"{self.max_alph[col]}{row}{self.max_alph[i[1]]}{i[0]}")
         return legals
