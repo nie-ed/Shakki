@@ -16,4 +16,4 @@ Testit voidaan toistaa komentoriviltä syötteellä "poetry run pytest".
 
 ## Coverage report
 
-![Coverage report](./images/coverage_report.png)
+![Coverage report](../images/coverage_report.png)
