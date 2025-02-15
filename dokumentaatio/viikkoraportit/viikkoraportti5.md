@@ -1,11 +1,10 @@
 # Viikko 5
 
-Tällä viikolla alustin aloitin testauksen ja pyrin saamaan projektin dokumentaatiota ajantasalle.
+Tällä viikolla aloitin testauksen ja pyrin saamaan projektin dokumentaatiota edistettyä. Lisäksi korjasin nappuloiden liikkeiden sekä minimaxin toimintaa.
 
-Opin etenkin koodin testauksesta.
+Opin etenkin koodin testauksesta sekä lisää minimaxin toteutuksesta.
 
-
-Seuraavaksi pyrin saamaan minimax-algoritmin toiminnan etenemään ja lisäämään mukaan alpha-beta-karsinnan.
+Seuraavalla viikolla pyrin tekemään lisää testejä ja toteuttamaan heurestiikkafunktion, joka pisteyttää nappuloita niiden sijainnin mukaan. Mikäli aika riittää, haluaisin myös aloittaa alpha-beta-karsinnan toteutuksen.
 
 ## Tuntikirjanpito
 
@@ -16,4 +15,4 @@ Seuraavaksi pyrin saamaan minimax-algoritmin toiminnan etenemään ja lisäämä
 | 15.2.2025  | 6h            | Lisää testausta, koodin refaktorointia, minimaxin ja nappuloiden liikeiden korjausta, dokumentaation päivitystä. |
 
 
-Käytetty aika yhteensä: 
+Käytetty aika yhteensä: 9h.

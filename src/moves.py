@@ -4,7 +4,7 @@ from movement_of_pieces.king import King
 from movement_of_pieces.rook import Rook
 from movement_of_pieces.bishop import Bishop
 from movement_of_pieces.queen import Queen
-from minimax import Minimax
+from minimax.minimax import Minimax
 from trial_board import TrialBoard
 
 
@@ -34,14 +34,16 @@ class Moves:
 
         minimax_object = Minimax()
         minimax_algorithm = minimax_object.minimax
-        minimax_object.scores = [0] * len(legals)
         trial_board = TrialBoard(board.copy())
 
-        minimax_algorithm(self.get_legal_moves, legals, 0, True, 1, trial_board, 0)
+        minimax_algorithm(self.get_legal_moves, legals, 0, True, trial_board)
 
         print(f"legals: {legals}")
 
-        choice = legals[minimax_object.scores.index(max(minimax_object.scores))]
+        if min(minimax_object.scores.values()) > 9000:
+            print("Checkmate")
+
+        choice = max(minimax_object.scores, key=minimax_object.scores.get)
         print(minimax_object.scores)
 
 
