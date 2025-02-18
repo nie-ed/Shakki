@@ -52,6 +52,7 @@ def point_evaluation(trial_board):
         #- check if king has own or opponent pieces around it
         #- how many legal moves possible?
         #- center occupation, d4, d5, e4, e5
+        #- best positioning for different types of pieces
 
 
     score = max_piece_amount + max_pawn_positioning - min_piece_amount - min_pawn_positioning
