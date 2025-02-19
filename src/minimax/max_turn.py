@@ -13,8 +13,7 @@ def max_turn(self, get_legal_moves, list_of_legal_moves, current_depth, trial_bo
         new_list_of_legal_moves = get_legal_moves(
             new_trial_board.trial_board, False)
         
-        score_now = self.minimax(get_legal_moves, new_list_of_legal_moves, current_depth + 1, 
-                                        False, new_trial_board)
+        score_now = self.minimax(current_depth - 1, False, new_trial_board)
         print(f"score now: {score_now}")
 
         maxi = max(score_now, maxi)

@@ -20,9 +20,8 @@ def main():
             print("Board reset!")
 
         elif opponent_move.startswith("PLAY:"):
-            choice = moves.make_move(board.board)
+            choice = moves.make_move(board)
             board.update_board(choice, max_alph)
-            print(board.board)
             # example about logs
             print(f"I chose {choice}!")
             # example about posting a move
@@ -32,7 +31,6 @@ def main():
             move = opponent_move.removeprefix("MOVE:")
             print(f"Received move: {move}")
             board.update_board(move, max_alph)
-            print(board.board)
         else:
             print(f"Unknown tag: {opponent_move}")
             break
