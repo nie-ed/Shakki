@@ -16,4 +16,4 @@ Seuraavalla viikolla pyrin vielä korjaamaan algoritmia niin, että se olisi toi
 | 22.2.2025  | 6h            | Kuninkaan uhan tarkastamista, alpha-beta-karsinnan aloitusta. |
 
 
-Käytetty aika yhteensä: 
+Käytetty aika yhteensä: 12h.
