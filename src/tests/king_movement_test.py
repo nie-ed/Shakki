@@ -19,7 +19,7 @@ class TestKing(unittest.TestCase):
             ["r", "n", "b", "q", "k", "b", "n", "r"]]
         row = 8
         col = 4
-        legals_in_position = self.king.king_movement(test_board, row, col, self.pieces)
+        legals_in_position = self.king.king_movement(test_board, row, col)
         self.assertEqual([], legals_in_position)
 
     def test_king_can_move_anyway(self):
@@ -35,7 +35,7 @@ class TestKing(unittest.TestCase):
             ["r", "n", "b", "q", ".", "b", "n", "r"]]
         row = 5
         col = 4
-        legals_in_position = self.king.king_movement(test_board, row, col, self.pieces)
+        legals_in_position = self.king.king_movement(test_board, row, col)
         self.assertEqual([(4, 4), (6, 4), (5, 3), (5, 5), (4, 3), (4, 5), (6, 3), (6, 5)], legals_in_position)
 
     def test_king_can_move_down(self):
@@ -51,7 +51,7 @@ class TestKing(unittest.TestCase):
             ["r", "n", "b", "q", ".", "b", "n", "r"]]
         row = 7
         col = 4
-        legals_in_position = self.king.king_movement(test_board, row, col, self.pieces)
+        legals_in_position = self.king.king_movement(test_board, row, col)
         self.assertEqual([(8, 4)], legals_in_position)
 
     def test_king_can_move_up_and_diagonally_up(self):
@@ -67,5 +67,5 @@ class TestKing(unittest.TestCase):
             ["r", "n", "b", "q", "p", "b", "n", "r"]]
         row = 7
         col = 4
-        legals_in_position = self.king.king_movement(test_board, row, col, self.pieces)
+        legals_in_position = self.king.king_movement(test_board, row, col)
         self.assertEqual([(6, 4), (6, 3), (6, 5)], legals_in_position)
