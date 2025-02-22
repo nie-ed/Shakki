@@ -1,10 +1,10 @@
 # Viikko 6
 
-Tällä viikolla korjasin minimax-algoritmia ja alustin alpha-beta-karsintaa.
+Tällä viikolla korjasin minimax-algoritmia ja alustin alpha-beta-karsintaa. Näiden toteutus ei ole tällä hetkellä vielä täysin toimiva. 
 
-Opin lisää minimaxin toteutuksesta.
+Opin lisää minimaxin toteutuksesta ja laillisten siirtojen etsimisestä.
 
-Seuraavalla viikolla pyrin vielä korjaamaan algoritmia niin, että se olisi toimiva demotilaisuuteen.
+Seuraavalla viikolla pyrin korjaamaan algoritmia niin, että se olisi toimiva demotilaisuuteen.
 
 ## Tuntikirjanpito
 
