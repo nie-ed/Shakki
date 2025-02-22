@@ -26,9 +26,11 @@ class Moves:
         minimax_object = Minimax()
         minimax_algorithm = minimax_object.minimax
         current_depth = 3
+        a = -10000
+        b = 10000
 
-        minimax_algorithm(current_depth, True, board)
-
-        choice = minimax_object.best_move[0]
-
-        return choice
+        minimax_algorithm(current_depth, True, board, a, b)
+        if minimax_object.best_move:
+            print(f"best moves: {minimax_object.best_move}")
+            choice = minimax_object.best_move[0]
+            return choice

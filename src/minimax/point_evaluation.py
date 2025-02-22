@@ -43,5 +43,6 @@ def point_evaluation(board):
 
 
     score = max_piece_amount + max_pawn_positioning - min_piece_amount - min_pawn_positioning
-    
+
+
     return score
