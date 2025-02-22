@@ -37,11 +37,13 @@ class Minimax:
 
         #find_all_legal_moves_for_the_king
         new_list_of_king_legal_moves = []
-        new_list_of_king_legal_moves = get_king_legal_moves(board.board)
+        new_list_of_king_legal_moves = get_king_legal_moves(board.board, row, col)
+        print(new_list_of_king_legal_moves)
 
         #find all legal moves for others than the king
         new_list_of_legal_moves = []
         new_list_of_legal_moves = get_legal_moves(board.board, is_max_turn)
+        print(new_list_of_legal_moves)
 
 
 
@@ -66,6 +68,7 @@ class Minimax:
                     return 10000000 
         else:
             new_list_of_legal_moves.extend(new_list_of_king_legal_moves)
+            print(new_list_of_legal_moves)
 
 
         #if there are no legal moves to make, it is a draw

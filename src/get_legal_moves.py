@@ -5,18 +5,16 @@ from movement_of_pieces.rook import Rook
 from movement_of_pieces.bishop import Bishop
 from movement_of_pieces.queen import Queen
 
-def get_king_legal_moves(board):
+def get_king_legal_moves(board, row, col):
     king = King()
     max_alph = ["a", "b", "c", "d", "e", "f", "g", "h"]
 
     legals = []
 
-    for row in range(len(board)):
-        for col in range(len(board[row])):
-            added_legals = king.king_movement(board, row, col)
-            if added_legals:
-                for i in added_legals:
-                    legals.append(f"{max_alph[col]}{row}{max_alph[i[1]]}{i[0]}")
+    added_legals = king.king_movement(board, row, col)
+    if added_legals:
+        for i in added_legals:
+            legals.append(f"{max_alph[col]}{row}{max_alph[i[1]]}{i[0]}")
                     
     return legals
 

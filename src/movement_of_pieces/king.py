@@ -31,14 +31,15 @@ class King:
 
         if is_max_turn:
             for i in moves:
-                can_be_added_to_legals = True
+                can_be_added_to_legals = False
                 x = xx + i[0]
                 y = yy + i[1]
                 if 0 < x < 9 and 0 <= y < 8:
                     if board[x][y] not in self_pieces:
+                        can_be_added_to_legals = True
                         next_x = x
                         next_y = y
-                        for n in range(1, 10):
+                        for n in range(0, 10):
                             next_x =+ i[0]
                             next_y =+ i[1]
                             if 0 < next_x < 9 and 0 <= next_y< 8:
@@ -73,17 +74,18 @@ class King:
                                 break
                 
                 if can_be_added_to_legals:
-                    legals.append((x,y))
+                    legals.append((x, y))
 
                 
 
         else:
             for i in moves:
-                can_be_added_to_legals = True
+                can_be_added_to_legals = False
                 x = xx + i[0]
                 y = yy + i[1]
                 if 0 < x < 9 and 0 <= y < 8:
                     if board[x][y] not in self_pieces:
+                        can_be_added_to_legals = True
                         next_x = x
                         next_y = y
                         for n in range(1, 10):
@@ -122,6 +124,6 @@ class King:
                                 break
                 
                 if can_be_added_to_legals:
-                    legals.append((x,y))
+                    legals.append((x, y))
 
         return legals
