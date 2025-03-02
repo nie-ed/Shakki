@@ -5,16 +5,16 @@ from movement_of_pieces.rook import Rook
 from movement_of_pieces.bishop import Bishop
 from movement_of_pieces.queen import Queen
 
-def get_king_legal_moves(board, row, col):
+def get_king_legal_moves(board, row, col, is_max_turn):
     king = King()
-    max_alph = ["a", "b", "c", "d", "e", "f", "g", "h"]
+    alph = ["a", "b", "c", "d", "e", "f", "g", "h"]
 
     legals = []
 
-    added_legals = king.king_movement(board, row, col)
+    added_legals = king.king_movement(board, row, col, is_max_turn)
     if added_legals:
         for i in added_legals:
-            legals.append(f"{max_alph[col]}{row}{max_alph[i[1]]}{i[0]}")
+            legals.append(f"{alph[col]}{row}{alph[i[1]]}{i[0]}")
                     
     return legals
 
@@ -26,7 +26,7 @@ def get_legal_moves(board, max_player):
     rook = Rook()
     bishop = Bishop()
     queen = Queen()
-    max_alph = ["a", "b", "c", "d", "e", "f", "g", "h"]
+    alph = ["a", "b", "c", "d", "e", "f", "g", "h"]
     min_pieces = ["N", "B", "Q", "K", "R", "P"]
     max_pieces = ["n", "b", "q", "k", "r", "p"]
 
@@ -42,7 +42,7 @@ def get_legal_moves(board, max_player):
                     if added_legals:
                         for i in added_legals:
                             legals.append(
-                                f"{max_alph[col]}{row}{max_alph[i[1]]}{i[0]}")
+                                f"{alph[col]}{row}{alph[i[1]]}{i[0]}")
 
                 if board[row][col] == "n":
                     added_legals = knight.knight_movement(
@@ -50,7 +50,7 @@ def get_legal_moves(board, max_player):
                     if added_legals:
                         for i in added_legals:
                             legals.append(
-                                f"{max_alph[col]}{row}{max_alph[i[1]]}{i[0]}")
+                                f"{alph[col]}{row}{alph[i[1]]}{i[0]}")
 
                 if board[row][col] == "r":
                     added_legals = rook.rook_movement(
@@ -58,7 +58,7 @@ def get_legal_moves(board, max_player):
                     if added_legals:
                         for i in added_legals:
                             legals.append(
-                                f"{max_alph[col]}{row}{max_alph[i[1]]}{i[0]}")
+                                f"{alph[col]}{row}{alph[i[1]]}{i[0]}")
 
                 if board[row][col] == "b":
                     added_legals = bishop.bishop_movement(
@@ -66,7 +66,7 @@ def get_legal_moves(board, max_player):
                     if added_legals:
                         for i in added_legals:
                             legals.append(
-                                f"{max_alph[col]}{row}{max_alph[i[1]]}{i[0]}")
+                                f"{alph[col]}{row}{alph[i[1]]}{i[0]}")
 
                 if board[row][col] == "q":
                     added_legals = queen.queen_movement(
@@ -74,7 +74,7 @@ def get_legal_moves(board, max_player):
                     if added_legals:
                         for i in added_legals:
                             legals.append(
-                                f"{max_alph[col]}{row}{max_alph[i[1]]}{i[0]}")
+                                f"{alph[col]}{row}{alph[i[1]]}{i[0]}")
 
     
     else:
@@ -87,7 +87,7 @@ def get_legal_moves(board, max_player):
                     if added_legals:
                         for i in added_legals:
                             legals.append(
-                                f"{max_alph[col]}{row}{max_alph[i[1]]}{i[0]}")
+                                f"{alph[col]}{row}{alph[i[1]]}{i[0]}")
 
                 if board[row][col] == "N":
                     added_legals = knight.knight_movement(
@@ -95,7 +95,7 @@ def get_legal_moves(board, max_player):
                     if added_legals:
                         for i in added_legals:
                             legals.append(
-                                f"{max_alph[col]}{row}{max_alph[i[1]]}{i[0]}")
+                                f"{alph[col]}{row}{alph[i[1]]}{i[0]}")
 
                 if board[row][col] == "R":
                     added_legals = rook.rook_movement(
@@ -103,7 +103,7 @@ def get_legal_moves(board, max_player):
                     if added_legals:
                         for i in added_legals:
                             legals.append(
-                                f"{max_alph[col]}{row}{max_alph[i[1]]}{i[0]}")
+                                f"{alph[col]}{row}{alph[i[1]]}{i[0]}")
 
                 if board[row][col] == "B":
                     added_legals = bishop.bishop_movement(
@@ -111,7 +111,7 @@ def get_legal_moves(board, max_player):
                     if added_legals:
                         for i in added_legals:
                             legals.append(
-                                f"{max_alph[col]}{row}{max_alph[i[1]]}{i[0]}")
+                                f"{alph[col]}{row}{alph[i[1]]}{i[0]}")
 
                 if board[row][col] == "Q":
                     added_legals = queen.queen_movement(
@@ -119,5 +119,5 @@ def get_legal_moves(board, max_player):
                     if added_legals:
                         for i in added_legals:
                             legals.append(
-                                f"{max_alph[col]}{row}{max_alph[i[1]]}{i[0]}")
+                                f"{alph[col]}{row}{alph[i[1]]}{i[0]}")
     return legals

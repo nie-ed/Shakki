@@ -25,7 +25,7 @@ class Moves:
         """
         minimax_object = Minimax()
         minimax_algorithm = minimax_object.minimax
-        current_depth = 3
+        current_depth = 2
         a = -10000
         b = 10000
 

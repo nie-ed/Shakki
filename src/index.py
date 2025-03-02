@@ -22,9 +22,8 @@ def main():
         elif opponent_move.startswith("PLAY:"):
             choice = moves.make_move(board)
             if not choice:
-                print("CHCKMATE")
+                print("CHECKMATE")
                 break
-            print(f"choise before traceback {choice}")
             board.update_board(choice, max_alph)
             # example about logs
             print(f"I chose {choice}!")
