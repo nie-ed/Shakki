@@ -20,7 +20,7 @@ Alpha-beta karsinnalla on mahdollisuus pienentää aika- ja tilavaativuutta, kui
 
 ## Työn mahdolliset puutteet ja parannusehdotukset
 
-Projektia voisi refaktoroida siisitimmäksi. 
+Projektia voisi refaktoroida siistimmäksi. 
 Tällä hetkellä projektissa ei ole toimitoja erikoissiirroille tai -tilanteille, kuten tornitukselle, ohestalyönnille, sotilaan korotukselle eikä toistuvaan asemaan perustuvalle tasapelille. Näitä voisi toteuttaa tulevaisuudessa.
 
 ## Laajojen kielimallien käyttö.
