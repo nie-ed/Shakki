@@ -5,9 +5,9 @@
 ### Tekoälyalustan käyttöönotto
 
 Sovellus on suunniteltu käytettäväksi tekoälyalustan kanssa. 
-Tarkemmat ohjeet tekoälyalustan lataamisesta ja käyttöönotosta löydät osoitteesta [text](https://algolabra-hy.github.io/aiplatform-fi). Alla lyhyt kuvaus tekoäyalustan käyttöönotosta.
+Tarkemmat ohjeet tekoälyalustan lataamisesta ja käyttöönotosta löydät [täältä](https://algolabra-hy.github.io/aiplatform-fi). Alla lyhyt kuvaus tekoäyalustan käyttöönotosta.
 
-Lataa tekoälyalustan releasen zip tiedosto osoitteesta [text](https://github.com/game-ai-platform-team/tira-ai-local/releases).
+Lataa tekoälyalustan releasen zip tiedosto [täältä](https://github.com/game-ai-platform-team/tira-ai-local/releases).
 
 Kloonaa tämä Shakki repositorio koneellesi. Koneellesi pitää olla asennettuna poetry, jotta seuraavat askeleet onnistuvat. Asenna riippuvuudet kloonatun repositorion juurihakemistossa komennolla.
 
@@ -33,7 +33,7 @@ Pelin käynnistyessä tulostuu terminaaliin pelin alkutilan lauta. Olet laudalla
 Yksikkötestit voidaan toistaa komentoriviltä syötteellä 
 
 ```bash
-poetry run pytest".
+poetry run pytest
 ```
 
 Robotframework testit voidaan toistaa komentiriviltä komennolla
@@ -56,22 +56,36 @@ Suoraan terminaalin kautta pelatessa, olet nappulat merkittynä isoilla kirjaimi
 
 Voit tehdä siirron laudalla komennolla "MOVE:xxxx", jossa ensimmäiset kaksi "xx" merkkiä sisältäää sarakkeen kirjaimen ja rivin numeron jolla nappula jota haluat siirtää on sijoitettuna laudalla esim. e2. Toisen "xx" sisältävät sarakkeen kirjaimen ja rivin numeron jolle kohtaa haluat siirtää kyseisen nappulan esim. e3. Rivien numerot ovat 1-8 ja sarakkeiden kirjaimet ovat a-h. Eli esim. "MOVE:e2e3" alkutilanteessa:
             ["R", "N", "B", "Q", "K", "B", "N", "R"],
+
             ["P", "P", "P", "P", "P", "P", "P", "P"],
+
             [".", ".", ".", ".", ".", ".", ".", "."],
+
             [".", ".", ".", ".", ".", ".", ".", "."],
+
             [".", ".", ".", ".", ".", ".", ".", "."],
+
             [".", ".", ".", ".", ".", ".", ".", "."],
+
             ["p", "p", "p", "p", "p", "p", "p", "p"],
+
             ["r", "n", "b", "q", "k", "b", "n", "r"]
 
 siirtää nappulaa niin, että lauta näyttää seuraavalta:
             ["R", "N", "B", "Q", "K", "B", "N", "R"],
+
             ["P", "P", "P", "P", ".", "P", "P", "P"],
+
             [".", ".", ".", ".", "P", ".", ".", "."],
+
             [".", ".", ".", ".", ".", ".", ".", "."],
+
             [".", ".", ".", ".", ".", ".", ".", "."],
+
             [".", ".", ".", ".", ".", ".", ".", "."],
+
             ["p", "p", "p", "p", "p", "p", "p", "p"],
+            
             ["r", "n", "b", "q", "k", "b", "n", "r"]
 
 Jotta tekoäly oman siirtosi jälkeen tekee seuraavan siirron, pitää terminaalissa kirjoittaa "PLAY:".
