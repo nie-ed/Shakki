@@ -2,6 +2,8 @@
 
 ## Kattavuusraportti
 
+![Coverage report](../images/coverage_report.png)
+
 ## Mitä on testattu
 
 Projektissa on testattu pelinappuloiden liikkeiden oikeellisuus yksikkötesteillä unittest-kirjaston avulla. Yksikkötestit testaavat kansion *src/movement_of_pieces* tiedostoja. Lisäksi yksikkötestejä on koko flowlle alkaen minimax.py tiedostosta. Testit käsittelevät tiedostoja *board.py*, *get_legal_moves.py*, *is_king_threatened.py*, *minimax.py* ja *point_evaluation.py*. Tiedostot *index.py* sekä *moves.py* jätettiin pois testikattavuudesta, koska ne käsittelevät erityisesti käyttöliittymän kanssa kommunikointia ja minimax-algoritmin aloitusarvojen antoa, mikä tehtiin suoraan testeissä.
@@ -47,9 +49,6 @@ Testikattavuusraportin saat komennolla:
 poetry run coverage run --branch -m pytest src; coverage html
 ```
 
-## Coverage report
-
-![Coverage report](../images/coverage_report.png)
 
 ## Viitteet
 https://chesspuzzlesonline.com/chess-tactics/chess-puzzles-mate-in-4/
