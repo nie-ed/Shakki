@@ -10,9 +10,9 @@ Sovelluksen käynnistää index.py tiedosto, joka kommunikoi tekoälykäyttölii
 
 Projekti on toteutettu Python kielellä. Tekoälyn toteutukseen on käytetty minimax-algoritmia sekä alpha-beta karsintaa.
 
-## Saavutetut aika- ja tilavaativuudet (esim. O-analyysit pseudokoodista)
+## Aika- ja tilavaativuudet
 
-Aikavaativuus on O(b^d) koska oletetaan, että alimmalla puun tasolla d on b määrä solmuja käytävä läpi. Funktio on f(d)=SUM(i=1,...,d){b^i}.
+Aikavaativuus on O(b^d) koska oletetaan, että alimmalla puun tasolla d on b määrä solmuja käytävä läpi.
 
 Tilavaativuus on O(bd), missä b on suurin yhden solmun mahdollisten valintojen määrä ja d on puun korkeus. Algoritmissa mennään ensin rekursiivisesti puun alimmalle tasolle, valitsemalla matkalla jokaiselta tasolta yksi solmu, jonka lapset lisätään muistiin ja valitaan taas niistä yksi solmu, jonka lapset lisätään muistiin jne. Kun ollaan saavutettu alin taso, käydään kaikki tämän vanhemman solmun lapset läpi ja löydetään vanhemmalle arvo. Tämän jälkeen tämän vanhemman läpi käydyt lapset poistaa muistista. Näin ollen, tulee jokaisella tasolla olemaan b solmua muistissa, joka hetkellä, eli muistivaativuudeksi tulee b*d.
 
