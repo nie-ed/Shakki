@@ -7,8 +7,8 @@ class King:
         """
         self.legals = []
         self.board = None
-        self.king_moves = ((-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1))
-
+        self.king_moves = ((-1, 0), (1, 0), (0, -1), (0, 1),
+                           (-1, -1), (-1, 1), (1, -1), (1, 1))
 
     def king_movement(self, board, row, col, is_max_turn):
         """Finds the legal moved the king can make.
@@ -36,7 +36,6 @@ class King:
                 if 0 < x < 9 and 0 <= y < 8:
                     if self.board[x][y] not in self_pieces:
                         self.check_threats_max_turn(self_pieces, i, x, y)
-           
 
         else:
             self_pieces = ["N", "B", "Q", "R", "P"]
@@ -46,10 +45,8 @@ class King:
                 if 0 < x < 9 and 0 <= y < 8:
                     if self.board[x][y] not in self_pieces:
                         self.check_threats_min_turn(self_pieces, i, x, y)
-        
+
         return self.legals
-
-
 
     def check_threats_min_turn(self, self_pieces, i, x, y):
         for i in self.king_moves:
@@ -63,7 +60,7 @@ class King:
                         if self.board[next_x][next_y] == "r" or self.board[next_x][next_y] == "q":
                             return
                         elif self.board[next_x][next_y] == "k":
-                            if 0 <= abs(x - next_x) <= 1 and 0 <= abs(y-next_y) <=1:
+                            if 0 <= abs(x - next_x) <= 1 and 0 <= abs(y-next_y) <= 1:
                                 return
                             else:
                                 break
@@ -78,7 +75,7 @@ class King:
                         elif self.board[next_x][next_y] == "b" or self.board[next_x][next_y] == "q":
                             return
                         elif self.board[next_x][next_y] == "k":
-                            if 0 <= abs(x - next_x) <= 1 and 0 <= abs(y-next_y) <=1:
+                            if 0 <= abs(x - next_x) <= 1 and 0 <= abs(y-next_y) <= 1:
                                 return
                             else:
                                 break
@@ -89,7 +86,6 @@ class King:
                 else:
                     break
         self.check_knight_min_threaths(x, y)
-
 
     def check_threats_max_turn(self, self_pieces, i, x, y):
         for i in self.king_moves:
@@ -103,7 +99,7 @@ class King:
                         if self.board[next_x][next_y] == "R" or self.board[next_x][next_y] == "Q":
                             return
                         elif self.board[next_x][next_y] == "K":
-                            if 0 <= abs(x - next_x) <= 1 and 0 <= abs(y-next_y) <=1:
+                            if 0 <= abs(x - next_x) <= 1 and 0 <= abs(y-next_y) <= 1:
                                 return
                             else:
                                 break
@@ -118,7 +114,7 @@ class King:
                         elif self.board[next_x][next_y] == "B" or self.board[next_x][next_y] == "Q":
                             return
                         elif self.board[next_x][next_y] == "K":
-                            if 0 <= abs(x - next_x) <= 1 and 0 <= abs(y-next_y) <=1:
+                            if 0 <= abs(x - next_x) <= 1 and 0 <= abs(y-next_y) <= 1:
                                 return
                             else:
                                 break
@@ -131,9 +127,9 @@ class King:
                     break
         self.check_knight_max_threaths(x, y)
 
-
     def check_knight_min_threaths(self, x, y):
-        knight_moves = ((-2, -1), (-2, 1), (-1, 2), (-1, -2), (2, -1), (2, 1), (1, 2), (1, -2))
+        knight_moves = ((-2, -1), (-2, 1), (-1, 2), (-1, -2),
+                        (2, -1), (2, 1), (1, 2), (1, -2))
         for t, i in knight_moves:
             if 0 < x + t < 9 and 0 <= y + i < 8:
                 if self.board[x+t][y+i] == "n":
@@ -141,7 +137,8 @@ class King:
         self.legals.append((x, y))
 
     def check_knight_max_threaths(self, x, y):
-        knight_moves = ((-2, -1), (-2, 1), (-1, 2), (-1, -2), (2, -1), (2, 1), (1, 2), (1, -2))
+        knight_moves = ((-2, -1), (-2, 1), (-1, 2), (-1, -2),
+                        (2, -1), (2, 1), (1, 2), (1, -2))
         for t, i in knight_moves:
             if 0 < x + t < 9 and 0 <= y + i < 8:
                 if self.board[x+t][y+i] == "N":

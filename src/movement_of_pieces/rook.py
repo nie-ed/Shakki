@@ -20,7 +20,6 @@ class Rook:
             list: A list of moves that the rook can make.
         """
 
-
         xx = row
         yy = col
         legals = []

@@ -2,7 +2,7 @@ import random
 import time
 from board import Board
 from moves import Moves
-        
+
 
 def main():
     """function that communicated with the AI platform
@@ -11,12 +11,11 @@ def main():
     moves = Moves()
     board_alph = ["a", "b", "c", "d", "e", "f", "g", "h"]
 
-
     while True:
         for i in range(1, len(board.board)):
             print(board.board[i])
         opponent_move = input()
-        time.sleep(random.randrange(1,10)/100)
+        time.sleep(random.randrange(1, 10)/100)
 
         if opponent_move.startswith("RESET:"):
             print("Board reset!")
@@ -38,6 +37,7 @@ def main():
         else:
             print(f"Unknown tag: {opponent_move}")
             break
+
 
 if __name__ == "__main__":
     main()

@@ -1,6 +1,7 @@
 import unittest
 from movement_of_pieces.knight import Knight
 
+
 class TestKnight(unittest.TestCase):
     def setUp(self):
         self.knight = Knight()
@@ -20,9 +21,9 @@ class TestKnight(unittest.TestCase):
             ["r", "n", "b", "q", "r", "b", "n", "r"]]
         row = 8
         col = 1
-        legals_in_position = self.knight.knight_movement(test_board, row, col, self.pieces)
+        legals_in_position = self.knight.knight_movement(
+            test_board, row, col, self.pieces)
         self.assertEqual([], legals_in_position)
-
 
     def test_knight_can_move_anyway(self):
         test_board = [
@@ -37,8 +38,10 @@ class TestKnight(unittest.TestCase):
             ["r", "n", "b", "q", "k", "b", ".", "p"]]
         row = 5
         col = 4
-        legals_in_position = self.knight.knight_movement(test_board, row, col, self.pieces)
-        self.assertCountEqual([(3, 3), (3, 5), (7, 3), (7, 5), (4, 6), (4, 2), (6, 6), (6, 2)], legals_in_position)
+        legals_in_position = self.knight.knight_movement(
+            test_board, row, col, self.pieces)
+        self.assertCountEqual([(3, 3), (3, 5), (7, 3), (7, 5),
+                              (4, 6), (4, 2), (6, 6), (6, 2)], legals_in_position)
 
     def test_knight_can_eat_a_piece_anywhere(self):
         test_board = [
@@ -53,5 +56,7 @@ class TestKnight(unittest.TestCase):
             ["r", "n", "b", "q", "k", "b", ".", "p"]]
         row = 5
         col = 4
-        legals_in_position = self.knight.knight_movement(test_board, row, col, self.pieces)
-        self.assertCountEqual([(3, 3), (3, 5), (7, 3), (7, 5), (4, 6), (4, 2), (6, 6), (6, 2)], legals_in_position)
+        legals_in_position = self.knight.knight_movement(
+            test_board, row, col, self.pieces)
+        self.assertCountEqual([(3, 3), (3, 5), (7, 3), (7, 5),
+                              (4, 6), (4, 2), (6, 6), (6, 2)], legals_in_position)

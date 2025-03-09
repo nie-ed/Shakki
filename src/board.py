@@ -1,6 +1,7 @@
 class Board:
     """The board represented in a list of list form.
     """
+
     def __init__(self):
         """Class constructor, that creates a new board.
         """

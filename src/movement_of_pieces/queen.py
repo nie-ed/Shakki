@@ -20,7 +20,6 @@ class Queen:
             list: A list of moves that the queen can make.
         """
 
-
         xx = row
         yy = col
         legals = []

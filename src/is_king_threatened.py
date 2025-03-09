@@ -5,7 +5,7 @@ def is_king_threatened(board, row, col):
         board (list): The boards state in a list of lists form.
         row (int): Integer value of row on board where king is located.
         col (int): Integer value of column on boardwhere king is located.
-    
+
     Returns:
         bool : Tells if the king is threatened or not.
     """
@@ -17,16 +17,15 @@ def is_king_threatened(board, row, col):
         is_max_turn = False
         self_pieces = ["N", "B", "Q", "R", "P"]
 
-
     x = row
     y = col
-    moves = ((-1, 0), (1, 0), (0, -1), (0, 1), (-1, -1), (-1, 1), (1, -1), (1, 1))
+    moves = ((-1, 0), (1, 0), (0, -1), (0, 1),
+             (-1, -1), (-1, 1), (1, -1), (1, 1))
 
     if is_max_turn:
         return check_threats_max_turn(moves, x, y, board, self_pieces, row, col)
 
-    else:
-        return check_threats_min_turn(moves, x, y, board, self_pieces, row, col)
+    return check_threats_min_turn(moves, x, y, board, self_pieces, row, col)
 
 
 def check_threats_min_turn(moves, x, y, board, self_pieces, row, col):
@@ -45,7 +44,6 @@ def check_threats_min_turn(moves, x, y, board, self_pieces, row, col):
         bool : Tells if the king is threatened or not.
     """
 
-
     for i in moves:
         next_x = x
         next_y = y
@@ -57,12 +55,12 @@ def check_threats_min_turn(moves, x, y, board, self_pieces, row, col):
                     if board[next_x][next_y] == "r" or board[next_x][next_y] == "q":
                         return True
                     elif board[next_x][next_y] == "k":
-                        if 0 <= abs(x - next_x) and abs(x-next_x) <= 1 and 0 <= abs(y-next_y) and abs(y-next_y) <=1:
+                        if 0 <= abs(x - next_x) and abs(x-next_x) <= 1 and 0 <= abs(y-next_y) and abs(y-next_y) <= 1:
                             return True
                         else:
                             break
                     elif board[next_x][next_y] in ["b", "n", "p", "k"]:
-                        break                    
+                        break
                 else:
                     if board[next_x][next_y] == "p":
                         if next_x - row == 1 and abs(col - next_y) == 1:
@@ -72,7 +70,7 @@ def check_threats_min_turn(moves, x, y, board, self_pieces, row, col):
                     elif board[next_x][next_y] == "b" or board[next_x][next_y] == "q":
                         return True
                     elif board[next_x][next_y] == "k":
-                        if 0 <= abs(x - next_x) and abs(x-next_x) <= 1 and 0 <= abs(y-next_y) and abs(y-next_y) <=1:
+                        if 0 <= abs(x - next_x) and abs(x-next_x) <= 1 and 0 <= abs(y-next_y) and abs(y-next_y) <= 1:
                             return True
                         else:
                             break
@@ -84,7 +82,6 @@ def check_threats_min_turn(moves, x, y, board, self_pieces, row, col):
                 break
     return check_knight_min_threaths(x, y, board)
 
-            
 
 def check_threats_max_turn(moves, x, y, board, self_pieces, row, col):
     """Checks for max player if a move will make own king threatened or not.
@@ -108,17 +105,17 @@ def check_threats_max_turn(moves, x, y, board, self_pieces, row, col):
         while True:
             next_x += i[0]
             next_y += i[1]
-            if 0 < next_x < 9 and 0 <= next_y< 8:
+            if 0 < next_x < 9 and 0 <= next_y < 8:
                 if next_x == row or next_y == col:
                     if board[next_x][next_y] == "R" or board[next_x][next_y] == "Q":
                         return True
                     elif board[next_x][next_y] == "K":
-                        if 0 <= abs(x - next_x) and abs(x-next_x) <= 1 and 0 <= abs(y-next_y) and abs(y-next_y) <=1:
+                        if 0 <= abs(x - next_x) and abs(x-next_x) <= 1 and 0 <= abs(y-next_y) and abs(y-next_y) <= 1:
                             return True
                         else:
                             break
                     elif board[next_x][next_y] in ["B", "N", "P", "K"]:
-                        break  
+                        break
                 else:
                     if board[next_x][next_y] == "P":
                         if row - next_x == 1 and abs(col - next_y) == 1:
@@ -128,7 +125,7 @@ def check_threats_max_turn(moves, x, y, board, self_pieces, row, col):
                     elif board[next_x][next_y] == "B" or board[next_x][next_y] == "Q":
                         return True
                     elif board[next_x][next_y] == "K":
-                        if 0 <= abs(x - next_x) <= 1 and 0 <= abs(y-next_y) <=1:
+                        if 0 <= abs(x - next_x) <= 1 and 0 <= abs(y-next_y) <= 1:
                             return True
                         else:
                             break
@@ -153,7 +150,8 @@ def check_knight_max_threaths(x, y, board):
         bool : Tells if the king is threatened or not.
     """
 
-    knight_moves = ((-2, -1), (-2, 1), (-1, 2), (-1, -2), (2, -1), (2, 1), (1, 2), (1, -2))
+    knight_moves = ((-2, -1), (-2, 1), (-1, 2), (-1, -2),
+                    (2, -1), (2, 1), (1, 2), (1, -2))
     for t, i in knight_moves:
         if 0 < x + t < 9 and 0 <= y + i < 8:
             if board[x+t][y+i] == "N":
@@ -173,7 +171,8 @@ def check_knight_min_threaths(x, y, board):
         bool : Tells if the king is threatened or not.
     """
 
-    knight_moves = ((-2, -1), (-2, 1), (-1, 2), (-1, -2), (2, -1), (2, 1), (1, 2), (1, -2))
+    knight_moves = ((-2, -1), (-2, 1), (-1, 2), (-1, -2),
+                    (2, -1), (2, 1), (1, 2), (1, -2))
     for t, i in knight_moves:
         if 0 < x + t < 9 and 0 <= y + i < 8:
             if board[x+t][y+i] == "n":

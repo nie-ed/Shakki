@@ -1,10 +1,10 @@
 import unittest
 from is_king_threatened import is_king_threatened
 
+
 class TestThreath(unittest.TestCase):
 
-
-# max king tests
+    # max king tests
 
     def test_king_threatened_from_up(self):
         test_board = [
@@ -111,7 +111,6 @@ class TestThreath(unittest.TestCase):
         col = 4
         self.assertEqual(False, is_king_threatened(test_board, row, col))
 
-
     def test_king_threat_by_opponent_king(self):
         test_board = [
             [],
@@ -142,7 +141,6 @@ class TestThreath(unittest.TestCase):
         col = 4
         self.assertEqual(True, is_king_threatened(test_board, row, col))
 
-
     def test_king_threat_by_opponent_king_diagonally_but_opponent_king_too_far(self):
         test_board = [
             [],
@@ -158,7 +156,6 @@ class TestThreath(unittest.TestCase):
         col = 4
         self.assertEqual(False, is_king_threatened(test_board, row, col))
 
-
     def test_king_threat_by_opponent_king_but_opponent_king_too_far(self):
         test_board = [
             [],
@@ -173,7 +170,6 @@ class TestThreath(unittest.TestCase):
         row = 4
         col = 4
         self.assertEqual(False, is_king_threatened(test_board, row, col))
-
 
     def test_king_threat_by_knight(self):
         test_board = [
@@ -191,7 +187,7 @@ class TestThreath(unittest.TestCase):
         self.assertEqual(True, is_king_threatened(test_board, row, col))
 
 
-#min king tests
+# min king tests
 
     def test_king_threatened_from_up_min(self):
         test_board = [
@@ -298,7 +294,6 @@ class TestThreath(unittest.TestCase):
         col = 4
         self.assertEqual(False, is_king_threatened(test_board, row, col))
 
-
     def test_king_threat_by_opponent_king_min(self):
         test_board = [
             [],
@@ -329,7 +324,6 @@ class TestThreath(unittest.TestCase):
         col = 4
         self.assertEqual(True, is_king_threatened(test_board, row, col))
 
-
     def test_king_threat_by_opponent_king_diagonally_but_opponent_king_too_far_min(self):
         test_board = [
             [],
@@ -344,7 +338,6 @@ class TestThreath(unittest.TestCase):
         row = 4
         col = 4
         self.assertEqual(False, is_king_threatened(test_board, row, col))
-
 
     def test_king_threat_by_opponent_king_but_opponent_king_too_far_min(self):
         test_board = [
@@ -361,7 +354,6 @@ class TestThreath(unittest.TestCase):
         col = 4
         self.assertEqual(False, is_king_threatened(test_board, row, col))
 
-
     def test_king_threat_by_knight_min(self):
         test_board = [
             [],
@@ -376,4 +368,3 @@ class TestThreath(unittest.TestCase):
         row = 4
         col = 4
         self.assertEqual(True, is_king_threatened(test_board, row, col))
-

@@ -1,6 +1,7 @@
 import unittest
 from movement_of_pieces.bishop import Bishop
 
+
 class TestRook(unittest.TestCase):
     def setUp(self):
         self.bishop = Bishop()
@@ -20,7 +21,8 @@ class TestRook(unittest.TestCase):
             ["r", "n", "b", "q", "r", "b", "n", "k"]]
         row = 8
         col = 2
-        legals_in_position = self.bishop.bishop_movement(test_board, row, col, self.pieces)
+        legals_in_position = self.bishop.bishop_movement(
+            test_board, row, col, self.pieces)
         self.assertEqual([], legals_in_position)
 
     def test_bishop_can_move_anyway_also_on_opponent_piece(self):
@@ -36,9 +38,10 @@ class TestRook(unittest.TestCase):
             ["r", "n", "b", "p", "P", ".", "n", "p"]]
         row = 5
         col = 4
-        legals_in_position = self.bishop.bishop_movement(test_board, row, col, self.pieces)
-        self.assertCountEqual([(6, 3), (7, 2), (6, 5), (7, 6), (4, 3), (3, 2), (2, 1), (4, 5), (3, 6), (2, 7)], legals_in_position)
-
+        legals_in_position = self.bishop.bishop_movement(
+            test_board, row, col, self.pieces)
+        self.assertCountEqual([(6, 3), (7, 2), (6, 5), (7, 6), (4, 3),
+                              (3, 2), (2, 1), (4, 5), (3, 6), (2, 7)], legals_in_position)
 
     def test_bishop_cannot_move_past_upper_right_board_corner_or_own_pieces(self):
         test_board = [
@@ -53,9 +56,9 @@ class TestRook(unittest.TestCase):
             ["r", "n", ".", "q", "k", "b", "n", "."]]
         row = 1
         col = 7
-        legals_in_position = self.bishop.bishop_movement(test_board, row, col, self.pieces)
+        legals_in_position = self.bishop.bishop_movement(
+            test_board, row, col, self.pieces)
         self.assertEqual([], legals_in_position)
-
 
     def test_bishop_cannot_move_past_upper_left_board_corner_or_own_pieces(self):
         test_board = [
@@ -70,7 +73,8 @@ class TestRook(unittest.TestCase):
             [".", "n", "p", ".", "k", "b", "n", "p"]]
         row = 1
         col = 0
-        legals_in_position = self.bishop.bishop_movement(test_board, row, col, self.pieces)
+        legals_in_position = self.bishop.bishop_movement(
+            test_board, row, col, self.pieces)
         self.assertEqual([], legals_in_position)
 
     def test_bishop_cannot_move_past_bottom_left_corner_or_own_pieces(self):
@@ -86,7 +90,8 @@ class TestRook(unittest.TestCase):
             ["b", "n", "b", ".", "k", "b", "n", "p"]]
         row = 8
         col = 0
-        legals_in_position = self.bishop.bishop_movement(test_board, row, col, self.pieces)
+        legals_in_position = self.bishop.bishop_movement(
+            test_board, row, col, self.pieces)
         self.assertEqual([], legals_in_position)
 
     def test_bishop_cannot_move_past_bottom_right_corner_or_own_pieces(self):
@@ -102,5 +107,6 @@ class TestRook(unittest.TestCase):
             ["r", "n", ".", "q", "k", "b", "n", "b"]]
         row = 8
         col = 7
-        legals_in_position = self.bishop.bishop_movement(test_board, row, col, self.pieces)
+        legals_in_position = self.bishop.bishop_movement(
+            test_board, row, col, self.pieces)
         self.assertEqual([], legals_in_position)

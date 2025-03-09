@@ -15,6 +15,7 @@ class TestList(unittest.TestCase):
 
 # max turn
 
+
     def test_max_rook_protect_king(self):
         self.board.board = [
             [],
@@ -28,11 +29,12 @@ class TestList(unittest.TestCase):
             [".", ".", ".", ".", ".", ".", ".", "."]]
         row = 4
         col = 4
-        list_of_moves = get_legal_moves(self.board.board , True)
-        self.assertCountEqual(["e3e2", "f1f2", "f1f3", "f1f4", "f1f5", "f6f5", "d4d3"], list_of_moves)
-        legals = stub_only_moves_that_protect_the_king(self.board, list_of_moves, row, col, self.alph)
+        list_of_moves = get_legal_moves(self.board.board, True)
+        self.assertCountEqual(
+            ["e3e2", "f1f2", "f1f3", "f1f4", "f1f5", "f6f5", "d4d3"], list_of_moves)
+        legals = stub_only_moves_that_protect_the_king(
+            self.board, list_of_moves, row, col, self.alph)
         self.assertCountEqual(["f1f4"], legals)
-
 
     def test_max_bishop_protect_king(self):
         self.board.board = [
@@ -47,9 +49,11 @@ class TestList(unittest.TestCase):
             [".", ".", ".", ".", ".", ".", ".", "."]]
         row = 4
         col = 4
-        list_of_moves = get_legal_moves(self.board.board , True)
-        self.assertCountEqual(["e3e2", "h2g3", "h2f4", "h2e5", "f6f5", "d4d3"], list_of_moves)
-        legals = stub_only_moves_that_protect_the_king(self.board, list_of_moves, row, col, self.alph)
+        list_of_moves = get_legal_moves(self.board.board, True)
+        self.assertCountEqual(
+            ["e3e2", "h2g3", "h2f4", "h2e5", "f6f5", "d4d3"], list_of_moves)
+        legals = stub_only_moves_that_protect_the_king(
+            self.board, list_of_moves, row, col, self.alph)
         self.assertCountEqual(["h2f4"], legals)
 
     def test_max_king_is_not_protected_checkmate(self):
@@ -72,27 +76,28 @@ class TestList(unittest.TestCase):
         self.assertEqual(-10000000, score)
 
 
-
 # min turn
 
-    def test_min_rook_protect_king(self):
-            self.board.board = [
-                [],
-                [".", ".", ".", ".", "P", "R", "P", "."],
-                [".", ".", ".", ".", ".", ".", ".", "."],
-                [".", ".", ".", ".", "P", ".", ".", "."],
-                ["r", ".", ".", "P", "K", ".", ".", "r"],
-                [".", ".", ".", ".", "P", ".", ".", "."],
-                [".", ".", ".", ".", ".", "P", ".", "."],
-                [".", ".", ".", ".", ".", ".", ".", "."],
-                [".", ".", ".", ".", ".", ".", ".", "."]]
-            row = 4
-            col = 4
-            list_of_moves = get_legal_moves(self.board.board, False)
-            self.assertCountEqual(["e1e2", "f6f7", "f1f2", "f1f3", "f1f4", "f1f5", "d4d5", "g1g2", "e5e6"], list_of_moves)
-            legals = stub_only_moves_that_protect_the_king(self.board, list_of_moves, row, col, self.alph)
-            self.assertCountEqual(["f1f4"], legals)
 
+    def test_min_rook_protect_king(self):
+        self.board.board = [
+            [],
+            [".", ".", ".", ".", "P", "R", "P", "."],
+            [".", ".", ".", ".", ".", ".", ".", "."],
+            [".", ".", ".", ".", "P", ".", ".", "."],
+            ["r", ".", ".", "P", "K", ".", ".", "r"],
+            [".", ".", ".", ".", "P", ".", ".", "."],
+            [".", ".", ".", ".", ".", "P", ".", "."],
+            [".", ".", ".", ".", ".", ".", ".", "."],
+            [".", ".", ".", ".", ".", ".", ".", "."]]
+        row = 4
+        col = 4
+        list_of_moves = get_legal_moves(self.board.board, False)
+        self.assertCountEqual(["e1e2", "f6f7", "f1f2", "f1f3",
+                              "f1f4", "f1f5", "d4d5", "g1g2", "e5e6"], list_of_moves)
+        legals = stub_only_moves_that_protect_the_king(
+            self.board, list_of_moves, row, col, self.alph)
+        self.assertCountEqual(["f1f4"], legals)
 
     def test_min_bishop_protect_king(self):
         self.board.board = [
@@ -107,11 +112,12 @@ class TestList(unittest.TestCase):
             [".", ".", ".", ".", ".", ".", ".", "."]]
         row = 4
         col = 4
-        list_of_moves = get_legal_moves(self.board.board , False)
-        self.assertCountEqual(["d4d5", "h2g3", "h2f4", "e5e6", "h2g1"], list_of_moves)
-        legals = stub_only_moves_that_protect_the_king(self.board, list_of_moves, row, col, self.alph)
+        list_of_moves = get_legal_moves(self.board.board, False)
+        self.assertCountEqual(
+            ["d4d5", "h2g3", "h2f4", "e5e6", "h2g1"], list_of_moves)
+        legals = stub_only_moves_that_protect_the_king(
+            self.board, list_of_moves, row, col, self.alph)
         self.assertCountEqual(["h2f4"], legals)
-
 
     def test_min_king_is_not_protected_checkmate(self):
         self.board.board = [
@@ -133,8 +139,6 @@ class TestList(unittest.TestCase):
         self.assertEqual(10000000, score)
 
 
-
-
 # STUB FUNCTION
 def stub_only_moves_that_protect_the_king(board, new_list_of_legal_moves, row, col, alph):
     unchecked_new_list_of_legal_moves = new_list_of_legal_moves
@@ -142,7 +146,7 @@ def stub_only_moves_that_protect_the_king(board, new_list_of_legal_moves, row, c
 
     for move in unchecked_new_list_of_legal_moves:
         earlier_board = copy.deepcopy(board.board)
-        board.update_board(move, alph)                
+        board.update_board(move, alph)
         does_king_end_up_threatened = is_king_threatened(board.board, row, col)
         if does_king_end_up_threatened is False:
             new_list_of_legal_moves.append(move)

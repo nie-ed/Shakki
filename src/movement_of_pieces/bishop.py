@@ -20,7 +20,6 @@ class Bishop:
             list: A list of moves that the bishop can make.
         """
 
-
         xx = row
         yy = col
         legals = []

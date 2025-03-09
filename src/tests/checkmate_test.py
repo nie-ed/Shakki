@@ -9,27 +9,24 @@ class TestCheckmate(unittest.TestCase):
         self.pieces = ["n", "b", "q", "k", "r", "p"]
         self.alph = ["a", "b", "c", "d", "e", "f", "g", "h"]
 
-
-
     def test_ending_checkmate_for_mini_full_flow(self):
-            self.board.board = [
-                [],
-                ["k", ".", ".", ".", ".", ".", ".", "."],
-                [".", ".", ".", "R", ".", "R", ".", "."],
-                [".", ".", "N", ".", ".", ".", ".", "."],
-                [".", ".", ".", ".", ".", ".", ".", "."],
-                ["P", ".", ".", ".", ".", ".", ".", "."],
-                [".", ".", ".", ".", ".", ".", ".", "."],
-                [".", ".", ".", ".", ".", ".", "P", "P"],
-                [".", ".", ".", ".", "K", ".", ".", "."]]
-            minimax = Minimax()
-            depth = 1
-            is_max_turn = False
-            a = -10000
-            b = 10000
-            minimax.minimax(depth, is_max_turn, self.board, a, b)
-            self.assertEqual(-10000000, minimax.best_move[1])
-
+        self.board.board = [
+            [],
+            ["k", ".", ".", ".", ".", ".", ".", "."],
+            [".", ".", ".", "R", ".", "R", ".", "."],
+            [".", ".", "N", ".", ".", ".", ".", "."],
+            [".", ".", ".", ".", ".", ".", ".", "."],
+            ["P", ".", ".", ".", ".", ".", ".", "."],
+            [".", ".", ".", ".", ".", ".", ".", "."],
+            [".", ".", ".", ".", ".", ".", "P", "P"],
+            [".", ".", ".", ".", "K", ".", ".", "."]]
+        minimax = Minimax()
+        depth = 1
+        is_max_turn = False
+        a = -10000
+        b = 10000
+        minimax.minimax(depth, is_max_turn, self.board, a, b)
+        self.assertEqual(-10000000, minimax.best_move[1])
 
     def test_ending_checkmate_for_max_full_flow(self):
         self.board.board = [
@@ -50,7 +47,6 @@ class TestCheckmate(unittest.TestCase):
         minimax.minimax(depth, is_max_turn, self.board, a, b)
         self.assertEqual("h4f2", minimax.best_move[0])
         self.assertEqual(10000000, minimax.best_move[1])
-
 
     def test_ending_checkmate_for_max_full_flow_2(self):
         self.board.board = [

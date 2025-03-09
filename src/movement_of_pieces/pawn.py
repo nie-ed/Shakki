@@ -16,7 +16,7 @@ class Pawn:
             col (int): Integer value of column on board.
             opponent_pieces (list): List of opponents pieces.
             max_player (bool): Tells if it is max players turn or not 
-        
+
         Returns:
             list: A list of moves that the pawn can make.
         """
@@ -48,7 +48,7 @@ class Pawn:
                     legals.append((x, y))
 
             return legals
-    
+
         else:
             x = xx + 1
             y = yy
