@@ -1,5 +1,5 @@
 class Rook:
-    """Class, which checks the legal moves of a rook piece, and adds them to a list.
+    """Class, which checks the possible moves of a rook piece, and adds them to a list.
 
     """
 
@@ -11,11 +11,15 @@ class Rook:
         """Checks if a move to a specific part of the board is okay to do.
 
         Args:
-            board (Board): Board and its state in a list of lists form.
+            board (list): A boards state in a list of lists form.
             row (int): Integer value of row on board.
             col (int): Integer value of colum on board.
-            self_pieces: Alphabetic symbol for own pieces
+            self_pieces: Alphabetic symbol for own pieces in a list
+
+         Returns:
+            list: A list of moves that the rook can make.
         """
+
 
         xx = row
         yy = col

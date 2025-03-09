@@ -1,5 +1,9 @@
 class Board:
+    """The board represented in a list of list form.
+    """
     def __init__(self):
+        """Class constructor, that creates a new board.
+        """
         self.board = [
             [],
             ["R", "N", "B", "Q", "K", "B", "N", "R"],
@@ -11,16 +15,17 @@ class Board:
             ["p", "p", "p", "p", "p", "p", "p", "p"],
             ["r", "n", "b", "q", "k", "b", "n", "r"]]
 
-    def update_board(self, choice, moves):
-        first_position_col = moves.index(choice[0])
+    def update_board(self, choice, board_alph):
+        """Updates th board with a new move.
+
+        Args:
+            choice (str): The move chosen and that should be added to the board.
+            board_alph (list): A list ["a", "b", "c", "d", "e", "f", "g", "h"] of the alphabetic values of the columns on the board
+        """
+        first_position_col = board_alph.index(choice[0])
         first_position_row = int(choice[1])
-        second_position_col = moves.index(choice[2])
+        second_position_col = board_alph.index(choice[2])
         second_position_row = int(choice[3])
         piece_moving = self.board[first_position_row][first_position_col]
         self.board[first_position_row][first_position_col] = "."
-        if piece_moving == "p" and second_position_row == 1:
-            self.board[second_position_row][second_position_col] = "q"
-        else:
-            self.board[second_position_row][second_position_col] = piece_moving
-
-
+        self.board[second_position_row][second_position_col] = piece_moving

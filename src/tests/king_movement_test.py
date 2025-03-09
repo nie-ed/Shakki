@@ -25,6 +25,22 @@ class TestKing(unittest.TestCase):
         legals_in_position = self.king.king_movement(test_board, row, col, True)
         self.assertEqual([], legals_in_position)
 
+    def test_max_king_cannot_move_checkmate(self):
+        test_board = [
+            [],
+            [".", ".", ".", ".", ".", ".", ".", "."],
+            [".", ".", ".", ".", ".", ".", ".", "."],
+            [".", ".", ".", ".", ".", ".", ".", "R"],
+            [".", ".", ".", ".", "k", ".", ".", "R"],
+            [".", ".", ".", ".", ".", ".", ".", "R"],
+            [".", ".", ".", ".", ".", ".", ".", "."],
+            [".", ".", ".", ".", ".", ".", ".", "."],
+            [".", ".", ".", ".", ".", ".", ".", "."]]
+        row = 4
+        col = 4
+        legals_in_position = self.king.king_movement(test_board, row, col, True)
+        self.assertEqual([], legals_in_position)
+
     def test_max_king_can_move_anyway(self):
         test_board = [
             [],
@@ -89,6 +105,22 @@ class TestKing(unittest.TestCase):
         legals_in_position = self.king.king_movement(test_board, row, col, True)
         self.assertEqual([], legals_in_position)
 
+    def test_max_king_cannot_move_where_queen_threath(self):
+        test_board = [
+            [],
+            ["R", "N", "B", "Q", "r", "B", "N", "."],
+            ["P", "P", "P", "P", ".", "P", "P", "P"],
+            [".", ".", ".", ".", ".", ".", ".", "."],
+            [".", ".", ".", ".", "k", ".", ".", "."],
+            [".", ".", ".", ".", ".", ".", ".", "."],
+            [".", ".", ".", ".", "Q", ".", ".", "R"],
+            ["p", "p", "p", "p", ".", "p", "p", "p"],
+            ["r", "n", "b", "q", "p", "b", "n", "r"]]
+        row = 4
+        col = 4
+        legals_in_position = self.king.king_movement(test_board, row, col, True)
+        self.assertEqual([(4, 3), (4, 5)], legals_in_position)
+
     def test_max_king_cannot_move_where_pawn_threath(self):
         test_board = [
             [],
@@ -120,6 +152,22 @@ class TestKing(unittest.TestCase):
         col = 4
         legals_in_position = self.king.king_movement(test_board, row, col, True)
         self.assertEqual([(6, 3)], legals_in_position)
+
+    def test_max_king_movement_blocked_by_opposing_king(self):
+        test_board = [
+            [],
+            ["R", "N", "B", "Q", "R", "R", "P", "B"],
+            ["P", "P", "P", "P", "K", "P", "P", "P"],
+            [".", ".", ".", ".", ".", ".", ".", "."],
+            [".", ".", "K", ".", "k", ".", "K", "."],
+            [".", ".", ".", ".", ".", ".", ".", "."],
+            [".", ".", ".", ".", "K", ".", ".", "."],
+            ["p", "p", "p", "p", ".", "p", "p", "p"],
+            ["r", "n", "b", "q", "p", "b", "n", "r"]]
+        row = 4
+        col = 4
+        legals_in_position = self.king.king_movement(test_board, row, col, True)
+        self.assertEqual([], legals_in_position)
 
 
 
@@ -190,12 +238,6 @@ class TestKing(unittest.TestCase):
         col = 4
         legals_in_position = self.king.king_movement(test_board, row, col, False)
         self.assertEqual([(3, 4), (3, 3), (3, 5)], legals_in_position)
-
-
-
-
-
-
 
     def test_min_king_cannot_move_where_rook_threath(self):
         test_board = [

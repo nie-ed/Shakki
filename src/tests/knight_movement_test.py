@@ -1,7 +1,7 @@
 import unittest
 from movement_of_pieces.knight import Knight
 
-class TestRook(unittest.TestCase):
+class TestKnight(unittest.TestCase):
     def setUp(self):
         self.knight = Knight()
         self.opponent_pieces = ["N", "B", "Q", "K", "R", "P"]

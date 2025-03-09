@@ -1,5 +1,5 @@
 class Bishop:
-    """Class, which checks the legal moves of a bishop piece, and adds them to a list.
+    """Class, which checks the moves of a bishop piece, and adds them to a list.
 
     """
 
@@ -8,14 +8,18 @@ class Bishop:
         pass
 
     def bishop_movement(self, board, row, col, self_pieces):
-        """Checks if a move to a specific part of the board is okay to do.
+        """Checks if a move to a specific part of the board possible to do.
 
         Args:
-            board (Board): Board and its state in a list of lists form.
+            board (list): Board and its state in a list of lists form.
             row (int): Integer value of row on board.
             col (int): Integer value of colum on board.
-            self_pieces: Alphabetic symbol for own pieces
+            self_pieces(list): Alphabetic symbol for own pieces
+
+        Returns:
+            list: A list of moves that the bishop can make.
         """
+
 
         xx = row
         yy = col

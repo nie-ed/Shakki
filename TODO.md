@@ -1,3 +1,0 @@
-- king legal movement not working correctly, fix it
-- pawn moving to last row
-- is DRAW correct? test somehow

@@ -1,5 +1,5 @@
 class Pawn:
-    """Class, which checks the legal moves of a pawn piece, and adds them to a list.
+    """Class, which checks the possible moves of a pawn piece, and adds them to a list.
 
     """
 
@@ -11,10 +11,14 @@ class Pawn:
         """Checks if a move to a specific part of the board is okay to do.
 
         Args:
-            board (Board): Board and its state in a list of lists form.
+            board (list): Board and its state in a list of lists form.
             row (int): Integer value of row on board.
-            col (int): Integer value of colum on board.
-            opponent_pieces (list): List of opponents pieces in str form. 
+            col (int): Integer value of column on board.
+            opponent_pieces (list): List of opponents pieces.
+            max_player (bool): Tells if it is max players turn or not 
+        
+        Returns:
+            list: A list of moves that the pawn can make.
         """
 
         xx = row
@@ -67,7 +71,3 @@ class Pawn:
                     legals.append((x, y))
 
             return legals
-
-
-        # TO DO
-        # if col == 7, change piece type

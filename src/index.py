@@ -9,10 +9,12 @@ def main():
     """
     board = Board()
     moves = Moves()
-    max_alph = ["a", "b", "c", "d", "e", "f", "g", "h"]
+    board_alph = ["a", "b", "c", "d", "e", "f", "g", "h"]
 
 
     while True:
+        for i in range(1, len(board.board)):
+            print(board.board[i])
         opponent_move = input()
         time.sleep(random.randrange(1,10)/100)
 
@@ -20,20 +22,19 @@ def main():
             print("Board reset!")
 
         elif opponent_move.startswith("PLAY:"):
+            print("searching for next move")
             choice = moves.make_move(board)
-            if not choice:
-                print("CHECKMATE")
-                break
-            board.update_board(choice, max_alph)
-            # example about logs
-            print(f"I chose {choice}!")
-            # example about posting a move
-            print(f"MOVE:{choice}")
+            if choice[0]:
+                board.update_board(choice[0], board_alph)
+                print(f"I choice {choice}!")
+                print(f"MOVE:{choice[0]}")
+            else:
+                print(f"MOVE:{choice}")
 
         elif opponent_move.startswith("MOVE:"):
             move = opponent_move.removeprefix("MOVE:")
             print(f"Received move: {move}")
-            board.update_board(move, max_alph)
+            board.update_board(move, board_alph)
         else:
             print(f"Unknown tag: {opponent_move}")
             break
