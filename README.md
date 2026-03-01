@@ -1,10 +1,12 @@
-# Chess
+#  Chess AI
 
 This project contains a Chess AI, that uses the minimax-algorithim with alpha-beta pruning.
 
-The platform is provided by the school. The AI and movements of the pieces I have implemented myself.
+The project uses Python, Poetry, Robotframework, Pylint, Pytest, Coverage and autopep8.
 
-The platform can be found here: https://algolabra-hy.github.io/aiplatform-en.
+The UI platform is provided by the school. The AI and movements of the pieces I have implemented myself.
+
+The UI platform can be found here: https://algolabra-hy.github.io/aiplatform-en.
 
 You can also play the game directly via terminal. Navigate to the root folder of the project and run 
 
